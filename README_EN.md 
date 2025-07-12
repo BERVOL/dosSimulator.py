@@ -1,0 +1,110 @@
+# 💣 DoS Attack Simulator (Python)
+
+This is a terminal-based **DoS (Denial of Service)** attack simulator built with Python.  
+Its purpose is to send a large number of requests to a target URL and observe the server’s response under heavy load.
+
+> 🔒 This project is intended **for educational and testing purposes only**. Unauthorized attacks on live systems are illegal and prohibited.
+
+---
+
+## 🚀 Features
+
+- Interactive target URL input from the terminal
+- Define number of requests and thread count
+- Multi-threading support for high-speed requests
+- Real-time terminal output
+- Local test server setup using Flask
+
+---
+
+## 📦 Requirements
+
+- Python 3.x
+- `requests` library
+- (optional) `Flask` – to run your own test server
+
+### Install Required Libraries:
+
+```bash
+pip install requests
+pip install flask
+```
+
+---
+
+## 🧰 Project Structure
+
+```
+dos-simulator/
+├── dos_simulator.py      # Main simulation script
+├── test_server.py        # Flask-based simple target server
+└── README.md             # This file
+```
+
+---
+
+## ⚙️ Usage
+
+### 🔹 Start Test Server
+
+First, launch the test server:
+
+```bash
+python3 test_server.py
+```
+
+Then open this in your browser:  
+👉 `http://127.0.0.1:5000`
+
+### 🔹 Run the DoS Simulator
+
+In another terminal:
+
+```bash
+python3 dos_simulator.py
+```
+
+You’ll be asked:
+
+```
+🎯 Enter target URL (e.g. http://127.0.0.1:5000):
+📨 Enter number of requests:
+🔁 Enter thread count:
+```
+
+Then the attack begins! 🚀
+
+---
+
+## 💻 Sample Output
+
+```
+💥 DoS Attack Simulator 💥
+
+🎯 Enter target URL (e.g. http://127.0.0.1:5000): http://127.0.0.1:5000
+📨 Enter number of requests: 100
+🔁 Enter thread count: 10
+
+🚀 Starting attack on http://127.0.0.1:5000 with 100 requests and 10 threads...
+
+✅ Status: 200
+✅ Status: 200
+...
+✅ Attack finished.
+```
+
+---
+
+## ⚠️ Warnings
+
+- This tool is strictly for **educational use only**.
+- Attacking real systems without permission is **illegal**.
+- Only use on your own devices or in controlled environments.
+- This script is intended for ethical hacking and cyber security education.
+
+---
+
+## ✍️ Developed By
+
+Bervol – 2025  
+📌 GitHub: [github.com/bervol](https://github.com/bervol)
