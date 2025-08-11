@@ -1,19 +1,19 @@
 # DoS Simulator
 
-Bu proje, Dağıtılmış Hizmet Engelleme (DoS) saldırılarının simülasyonunu gerçekleştiren bir araçtır. Ağ güvenliği alanında eğitim ve test amaçlı kullanılabilir.
+Bu proje, Dağıtılmış Hizmet Engelleme (DoS) saldırılarının simülasyonunu gerçekleştiren, özellikle HTTP protokolü üzerinde çalışan bir araçtır. Ağ güvenliği alanında eğitim ve test amaçlı kullanılabilir.
 
 ## Özellikler
 
-- Belirli bir hedef IP ve port'a çok sayıda istek göndererek DoS saldırısı simülasyonu yapar.
-- TCP, UDP ve HTTP protokollerini destekler.
-- Saldırı yoğunluğunu ve süresini ayarlayabilme.
-- Çoklu iş parçacığı (multithreading) ile yüksek performans.
-- Basit ve kullanıcı dostu komut satırı arayüzü.
+- Hedef web sunucusuna HTTP istekleri göndererek DoS saldırısı simülasyonu yapar.
+- Asenkron (async) yöntemlerle yüksek performans sağlar.
+- Canlı istatistikler ile saldırı süresince performans takibi yapılabilir.
+- Detaylı loglama ve raporlama özellikleri mevcuttur.
+- Basit ve kullanıcı dostu etkileşimli terminal arayüzü.
 
 ## Gereksinimler
 
 - Python 3.6 ve üzeri
-- Gerekli Python kütüphaneleri: `requests` (HTTP saldırıları için)
+- Gerekli Python kütüphaneleri: `requests`, `aiohttp` (HTTP saldırıları için asenkron istekler)
   
 Kurulum için:
 
@@ -23,27 +23,15 @@ pip install -r requirements.txt
 
 ## Kullanım
 
-Terminal veya komut satırından aşağıdaki şekilde çalıştırabilirsiniz:
+Aracı terminal veya komut satırından çalıştırdığınızda, hedef URL, saldırı süresi ve istek yoğunluğu gibi parametreleri etkileşimli olarak girmeniz istenir. Bu sayede kullanıcı dostu ve kolay bir kullanım deneyimi sağlar.
 
-```bash
-python dos_simulator.py --target 192.168.1.10 --port 80 --protocol tcp --threads 100 --duration 60
-```
+Örneğin, program çalıştırıldığında aşağıdaki gibi sorularla karşılaşırsınız:
 
-Parametreler:
+- Hedef URL'yi giriniz: 
+- Saldırı süresi (saniye): 
+- Eş zamanlı istek sayısı: 
 
-- `--target`: Hedef IP adresi veya domain adı.
-- `--port`: Hedef port numarası.
-- `--protocol`: Kullanılacak protokol (tcp, udp, http).
-- `--threads`: Aynı anda çalışacak iş parçacığı sayısı.
-- `--duration`: Saldırının süresi (saniye cinsinden).
-
-## Örnek
-
-```bash
-python dos_simulator.py --target example.com --port 80 --protocol http --threads 50 --duration 120
-```
-
-Bu komut, `example.com` adresine HTTP protokolü kullanarak 50 iş parçacığı ile 120 saniye boyunca saldırı yapar.
+Bu bilgileri girdikten sonra saldırı başlar ve canlı istatistikler ile saldırının durumu takip edilebilir.
 
 ## Uyarılar
 
@@ -54,7 +42,5 @@ Bu komut, `example.com` adresine HTTP protokolü kullanarak 50 iş parçacığı
 ## İleri Seviye Kullanım
 
 - Kaynak IP adresini rastgele değiştirme (IP spoofing) özelliği eklenebilir.
-- Saldırı türleri (SYN flood, UDP flood, HTTP GET flood vb.) genişletilebilir.
+- Saldırı türleri (HTTP GET flood, POST flood vb.) genişletilebilir.
 - Grafiksel arayüz eklenerek kullanım kolaylaştırılabilir.
-
-
